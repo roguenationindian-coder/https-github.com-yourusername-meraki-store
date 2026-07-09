@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Heart } from "lucide-react";
-import Button from "./Button";
+import Button from "@/components/ui/Button";
 
 type ProductCardProps = {
   image: string;
