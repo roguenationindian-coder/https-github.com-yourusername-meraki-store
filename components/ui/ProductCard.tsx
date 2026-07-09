@@ -7,6 +7,10 @@ type ProductCardProps = {
   name: string;
   category: string;
   price: number;
+  colors: string[];
+  sizes: string[];
+  isNew?: boolean;
+  inStock?: boolean;
 };
 
 export default function ProductCard({
@@ -19,21 +23,29 @@ export default function ProductCard({
     <div className="group">
 
       {/* Image */}
-      <div className="relative overflow-hidden rounded-3xl bg-zinc-100">
+<div className="relative overflow-hidden rounded-3xl bg-zinc-100">
 
-        <Image
-          src={image}
-          alt={name}
-          width={500}
-          height={650}
-          className="h-[420px] w-full object-cover transition duration-700 group-hover:scale-105"
-        />
+  <Image
+    src={image}
+    alt={name}
+    width={500}
+    height={650}
+    className="h-[420px] w-full object-cover transition duration-700 group-hover:scale-105"
+  />
 
-        <button className="absolute right-5 top-5 rounded-full bg-white p-3 shadow-md transition hover:scale-110">
-          <Heart size={20} />
-        </button>
+  {/* NEW Badge */}
+  {isNew && (
+    <span className="absolute left-5 top-5 rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
+      NEW
+    </span>
+  )}
 
-      </div>
+  {/* Wishlist Button */}
+  <button className="absolute right-5 top-5 rounded-full bg-white p-3 shadow-md transition hover:scale-110">
+    <Heart size={20} />
+  </button>
+
+</div>
 
       {/* Product Info */}
       <div className="mt-6">
